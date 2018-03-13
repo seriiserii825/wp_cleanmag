@@ -223,3 +223,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', end
 	.by-st{
 		float:right;
 	}
+
+.sidebar-widget.widget_categories li {
+	float: left;
+	width: 50%;
+}
+
+.sidebar-widget li {
+	margin-bottom: 10px;
+}
