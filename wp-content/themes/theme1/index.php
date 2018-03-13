@@ -16,10 +16,12 @@
                         <img src="<?php bloginfo("template_url"); ?>/images/post-img1.jpg" alt=""/>
                     </a>
                 </div>
+
                 <div class="articles-head">
                     <span class="articles-date"><img src="<?php bloginfo("template_url"); ?>/images/articles-autor.jpg" alt=""/> <span>Admin</span> - Nov 28th, 2010</span>
                     <span class="articles-comments"><img src="<?php bloginfo("template_url"); ?>/images/articles-comment.jpg" alt=""/> <a href="#">10 Comments</a></span>
                 </div>
+                
                 <h1>
                     <a href="#">Thanksgiving greeting card PSD</a>
                 </h1>

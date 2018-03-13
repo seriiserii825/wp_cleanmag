@@ -18,7 +18,6 @@
                             <img src="<?php bloginfo("template_url"); ?>/images/ads1.jpg" alt=""/>
                         </a>
                     </li>
-
                     <li>
                         <a href="#">
                             <img src="<?php bloginfo("template_url"); ?>/images/ads2.jpg" alt=""/>
@@ -30,7 +29,7 @@
                             <img src="<?php bloginfo("template_url"); ?>/images/ads3.jpg" alt=""/>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="#">
                             <img src="<?php bloginfo("template_url"); ?>/images/ads4.jpg" alt=""/>
