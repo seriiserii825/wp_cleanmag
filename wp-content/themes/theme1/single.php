@@ -4,24 +4,9 @@
     <div class="content-main">
         <div class="content">
 
-            <div id='slideshowHolder'>
-                <img src="<?php bloginfo("template_url"); ?>/images/img1.jpg" alt=''/>
-                <img src="<?php bloginfo("template_url"); ?>/images/img1.jpg" alt=''/>
-                <img src="<?php bloginfo("template_url"); ?>/images/img1.jpg" alt=''/>
-            </div>
 
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <div class="articles">
-                    <div class="articles-gen-img">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php if(has_post_thumbnail()): ?>
-                                <?php the_post_thumbnail(); ?>
-                            <?php else: ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/no-image.jpg" alt="">
-                            <?php endif; ?>
-                        </a>
-                    </div>
-
 
                     <div class="articles-head">
                         <span class="articles-date"><img src="<?php bloginfo("template_url"); ?>/images/articles-autor.jpg" alt=""/> <span><?php the_author(); ?></span> - <?php echo the_time('M d, Y'); ?></span>
@@ -29,13 +14,10 @@
                     </div>
 
                     <h1>
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <?php the_title(); ?>
                     </h1>
                     <p>
-                        <?php the_excerpt(); ?>
-                    </p>
-                    <p>
-                        <a href="<?php the_permalink(); ?>">Read More</a>
+                        <?php the_content(); ?>
                     </p>
                 </div>
             <?php endwhile; ?>
@@ -43,10 +25,12 @@
             <?php else: ?>
             <!-- no posts found -->
             <?php endif; ?>
-
+                
+                <?php comments_template(); ?>
 
             <div class="pager">
-                <?php posts_nav_link( '<span>-</span>'); ?>
+                <?php previous_post_link('<span>&laquo;</span>%link'); ?>
+                <?php next_post_link(); ?>
             </div>
 
         </div>
