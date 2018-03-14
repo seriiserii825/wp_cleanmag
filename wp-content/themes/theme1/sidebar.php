@@ -1,7 +1,5 @@
         <div class="sidebar-main">
-
-           
-
+  
                 <?php if(!dynamic_sidebar('sidebar')): ?>
                     <div class="sidebar-widget">
                         <h3>Sidebar widgets</h3>
