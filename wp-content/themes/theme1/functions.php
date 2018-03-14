@@ -48,6 +48,23 @@ $args = array(
 
 register_sidebar( $args );
 
+/**
+ * Creates a sidebar
+ * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+ */
+$args = array(
+  'name'          => __( 'Footer', 'text-domain' ),
+  'id'            => 'footer',
+  'description'   => '',
+  'class'         => '',
+  'before_widget' => '<div class="footer-info %2$s">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h3>',
+  'after_title'   => '</h3>',
+);
+
+register_sidebar( $args );
+
 
 
 add_theme_support( 'post-thumbnails' );
