@@ -1,70 +1,30 @@
 <?php get_header();?>
+
 <div class="content-wrapper">
 	<div class="content-main">
     	
         <div class="content">
         
+        <!-- slider -->    
+
+          <?php $slider = new WP_Query(['post_type' => 'slider', 'order' => 'ASC']);?>
+          
+          <?php if ( $slider->have_posts() ) : ?>
             <div id='slideshowHolder'>
-    
-             <img src="<?php bloginfo('template_url') ?>/images/img1.jpg" alt='' />
-            
-             <img src="<?php bloginfo('template_url') ?>/images/img1.jpg" alt='' />
-            
-             <img src="<?php bloginfo('template_url') ?>/images/img1.jpg" alt='' />
-            
+              <?php while ( $slider->have_posts() ) : $slider->the_post(); ?>
+              
+                <?php the_post_thumbnail( 'full' ); ?>
+              
+              <?php endwhile; ?>
             </div>
-     
-        	<div class="articles">
-            	
-                <div class="articles-gen-img">
-                	<a href="#"><img src="<?php bloginfo('template_url') ?>/images/post-img1.jpg" alt="Preview image" /></a>
-            	</div>
-                <div class="articles-head">
-            		<span class="articles-date"><img src="<?php bloginfo('template_url') ?>/images/articles-autor.jpg" alt="admin" /> <span>Admin</span> - Nov 28th, 2010</span>
-                    <span class="articles-comments"><img src="<?php bloginfo('template_url') ?>/images/articles-comment.jpg" alt="commets" /> <a href="#">10 комментариев</a></span>
-            	</div>
-                
-                <h1><a href="#">Thanksgiving greeting card PSD</a></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum malesuada orci a commodo. Aenean dapibus urna quis nulla consequat sagittis. Quisque ut ultrices massa. Mauris felis felis, rutrum sit amet vehicula ut, tempus quis lectus...</p>
+              <?php else: ?>
+                <h3>Место для слайдера</h3>
+          <?php endif; ?>
+          
+          <!-- slider --> 
 
-				<p><a href="#">Read More</a></p>
-            
-            </div>
-            
-            <div class="articles">
-            	
-                <div class="articles-gen-img">
-                	<a href="#"><img src="<?php bloginfo('template_url') ?>/images/post-img2.jpg" alt="Preview image" /></a>
-            	</div>
-                <div class="articles-head">
-            		<span class="articles-date"><img src="<?php bloginfo('template_url') ?>/images/articles-autor.jpg" alt="admin" /> <span>Admin</span> - Nov 28th, 2010</span>
-                    <span class="articles-comments"><img src="<?php bloginfo('template_url') ?>/images/articles-comment.jpg" alt="commets" /> <a href="#">10 комментариев</a></span>
-            	</div>
-                
-                <h1><a href="#">Thanksgiving greeting card PSD</a></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum malesuada orci a commodo. Aenean dapibus urna quis nulla consequat sagittis. Quisque ut ultrices massa. Mauris felis felis, rutrum sit amet vehicula ut, tempus quis lectus...</p>
+            <!-- articles -->
 
-				<p><a href="#">Read More</a></p>
-            
-            </div>
-            
-            <div class="articles">
-            	
-                <div class="articles-gen-img">
-                	<a href="#"><img src="<?php bloginfo('template_url') ?>/images/post-img3.jpg" alt="Preview image" /></a>
-            	</div>
-                <div class="articles-head">
-            		<span class="articles-date"><img src="<?php bloginfo('template_url') ?>/images/articles-autor.jpg" alt="admin" /> <span>Admin</span> - Nov 28th, 2010</span>
-                    <span class="articles-comments"><img src="<?php bloginfo('template_url') ?>/images/articles-comment.jpg" alt="commets" /> <a href="#">10 комментариев</a></span>
-            	</div>
-                
-                <h1><a href="#">Thanksgiving greeting card PSD</a></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum malesuada orci a commodo. Aenean dapibus urna quis nulla consequat sagittis. Quisque ut ultrices massa. Mauris felis felis, rutrum sit amet vehicula ut, tempus quis lectus...</p>
-
-				<p><a href="#">Read More</a></p>
-            
-            </div>
-            
             <div class="articles">
             	
                 <div class="articles-gen-img">
@@ -82,6 +42,10 @@
             
             </div>
             
+            <!-- atrticles -->
+            
+            <!-- pager -->
+
             <div class="pager">
             	<a href="#">1</a>
                 <a href="#">2</a>
@@ -91,6 +55,8 @@
                 <a href="#">75</a>
                 <a href="#" class="prev-next">Next</a>
             </div>
+
+            <!-- pager -->
         
         </div>
         

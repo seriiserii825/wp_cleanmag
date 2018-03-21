@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><?php bloginfo( 'name' );
+<title><?php bloginfo('name');
 	wp_title(); ?></title>
 	<?php wp_head(); ?>
 </head>
@@ -12,26 +12,56 @@
 <div class="head-wrapper">
 	<div class="head">
     	<div class="head-logo">
-        <a href="<?php echo home_url();?>"><img src="<?php bloginfo( 'template_url' ) ?>/images/logo.jpg" alt=""/></a>
+        <a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url') ?>/images/logo.jpg" alt=""/></a>
       </div>
-        <div class="head-banner"><img src="<?php bloginfo( 'template_url' ) ?>/images/728x90.jpg" alt=""/></div>
-    </div>
+	  
+	  <?php $banner = new WP_Query(['post_type' => 'banner', 'posts_per_page' => 1]); ?>
+	  
+	  <?php if($banner->have_posts()) : ?>
+
+        <div class="head-banner">
+    
+          <?php while($banner->have_posts()) : $banner->the_post(); ?>
+	          <?php the_post_thumbnail('full'); ?>
+          <?php endwhile; ?>
+          
+        </div>
+	  <?php else: ?>
+        <h2 style="text-align: center;">Место для баннера</h2>
+	  <?php endif; ?>
+   
+  </div>
 </div>
 <div class="menu-wrapper">
 	<div class="menu-main">
-    	<ul class="menu">
-        	<li><a href="#">Home</a></li>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Design Services</a></li>
-            <li><a href="#">Request Quote</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Contact Me</a></li>
-        </ul>
+    
+     <?php wp_nav_menu([
+	     'theme_location'  => '',
+	     'menu'            => 'header-menu',
+	     'container'       => '',
+	     'container_class' => '',
+	     'container_id'    => '',
+	     'menu_class'      => 'menu',
+	     'menu_id'         => '',
+	     'echo'            => true,
+	     'fallback_cb'     => 'wp_page_menu',
+	     'before'          => '',
+	     'after'           => '',
+	     'link_before'     => '',
+	     'link_after'      => '',
+	     'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	     'depth'           => 0,
+	     'walker'          => '',
+     ]) ?>
+	  
+    
         <ul class="ico-social">
-        	<li><a href="#"><img src="<?php bloginfo( 'template_url' ) ?>/images/ico-vk.png" alt="мы вконтакте"/></a></li>
-            <li><a href="#"><img src="<?php bloginfo( 'template_url' ) ?>/images/ico-youtobe.png" alt="канал youtobe"/></a></li>
-            <li><a href="#"><img src="<?php bloginfo( 'template_url' ) ?>/images/ico-facebook.png" alt="мы на facebook"/></a></li>
-            <li><a href="#"><img src="<?php bloginfo( 'template_url' ) ?>/images/ico-twitter.png" alt="наш twitter"/></a></li>
+          
+            <?php if(!dynamic_sidebar('header-socials')):?>
+              <h4>Место для иконок социальных сетей</h4>
+            <?php endif;?>
+          
         </ul>
     </div>
+  
 </div>
