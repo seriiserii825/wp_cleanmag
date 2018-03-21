@@ -134,10 +134,18 @@ a:hover{
 			.pager a{
 				color:#868686; padding:0 7px; float:left;
 			}
+
+			.pager a[rel="prev"],
+			.pager a[rel="next"] {
+				font-size: 26px;
+				line-height: 52px;
+			}
+
 			.pager a:hover{
 				color:#eb4900; text-decoration:none;
 			}
-			a.prev-next{
+			a.prev-next,
+			span.current{
 				color:#eb4900;
 			}
 			.pager span{
@@ -153,6 +161,14 @@ a:hover{
 			.sidebar-widget h3{
 				font-size:20px; color:#01b2bf; border-bottom:7px solid #e6e6e6; margin:0 0 10px 0; text-transform:uppercase;
 			}
+
+			.widget_categories li,
+			.widget_recent_entries li {
+				float: left;
+				width: 50%;
+				margin-bottom: 10px;
+			}
+
 			.sidebar-widget a{
 				font-size:13px; color:#535353;
 			}
@@ -207,6 +223,18 @@ a:hover{
 		.footer-info p a{
 			color:#eb4900;
 		}
+
+		.widget_nav_menu li {
+			float: none;
+		}
+
+		.widget_nav_menu ul li a {
+			padding-left: 0;
+			line-height: 0.95;
+		}
+
+
+
 .footer-copy{
 	overflow:hidden; width:960px; margin:0 auto; padding:20px 15px; font-size:12px; color:#373737;
 }

@@ -129,3 +129,59 @@ function register_slider(){
 		'query_var'           => true,
 	) );
 }
+
+// удаляет H2 из шаблона пагинации
+add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+function my_navigation_template( $template, $class ){
+	/*
+	Вид базового шаблона:
+	<nav class="navigation %1$s" role="navigation">
+		<h2 class="screen-reader-text">%2$s</h2>
+		<div class="nav-links">%3$s</div>
+	</nav>
+	*/
+
+	return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}
+
+/**
+ * sidebar
+ */
+/**
+ * Creates a sidebar
+ * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+ */
+$args = array(
+	'name'          => __( 'Сайдбар', 'text-domain' ),
+	'id'            => 'sidebar',
+	'description'   => 'Добавляем виджеты сайдбара',
+	'class'         => '',
+	'before_widget' => '<div class="sidebar-widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>',
+);
+
+register_sidebar( $args );
+
+
+/**
+ * Creates a sidebar
+ * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
+ */
+$args = array(
+	'name'          => __( 'Футер', 'text-domain' ),
+	'id'            => 'footer',
+	'description'   => 'Добавляем виджеты футера',
+	'class'         => '',
+	'before_widget' => '<div class="footer-info %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h3>',
+	'after_title'   => '</h3>',
+);
+
+register_sidebar( $args );
