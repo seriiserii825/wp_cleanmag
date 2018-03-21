@@ -4,7 +4,9 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/wp-admin" />
-      <excludeFolder url="file://$MODULE_DIR$/wp-includes" />
+      <excludeFolder url="file://$MODULE_DIR$/wp-content/themes/twentyfifteen" />
+      <excludeFolder url="file://$MODULE_DIR$/wp-content/themes/twentyseventeen" />
+      <excludeFolder url="file://$MODULE_DIR$/wp-content/themes/twentysixteen" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
